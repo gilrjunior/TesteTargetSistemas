@@ -1,4 +1,4 @@
-//Atenção: O node é o mongoDB devem estar instalados
+//Atenção: O node e o mongoDB devem estar instalados
 //A aplicação deve ser executada pelo node
 
 const day = require("./schema/DadosSchema")
@@ -9,15 +9,15 @@ var n = 0 //Número de dias no mês em que o valor de faturamento diário foi su
 
 day.find().then((days) => {
 
-    for(var i = 0; i < days.length; i++){
+    for (var i = 0; i < days.length; i++) {
 
-        if(days[i].valor < menorV && days[i].valor != 0 || menorV == 0){ //Menor valor de faturamento, logo o zero não conta
+        if (days[i].valor < menorV && days[i].valor != 0 || menorV == 0) { //Menor valor de faturamento, logo o zero não conta
 
             menorV = days[i].valor
 
         }
 
-        if(days[i].valor > maiorV || maiorV == 0 ){
+        if (days[i].valor > maiorV || maiorV == 0) {
 
             maiorV = days[i].valor
 
@@ -27,11 +27,11 @@ day.find().then((days) => {
 
     }
 
-    media = media/30
+    media = media / 30
 
-    for(var i = 0; i < days.length; i++){
+    for (var i = 0; i < days.length; i++) {
 
-        if(days[i].valor > media){
+        if (days[i].valor > media) {
             n++
         }
 
